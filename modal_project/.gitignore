@@ -1,0 +1,39 @@
+# dependencies (générées par le package manager)
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# tests (généré)
+/coverage
+
+# Next.js build/cache (généré)
+/.next/
+/out/
+
+# platform (généré si tu déploies sur Vercel)
+/.vercel
+
+# logs (généré)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# env files (secrets → ne jamais commit)
+.env*
+!.env.example
+
+# OS/editor (généré)
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# TypeScript cache (généré)
+*.tsbuildinfo
