@@ -8,6 +8,9 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modal_project
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,7 +19,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: npm
+          cache-dependency-path: modal_project/package-lock.json
 
       - name: Install
         run: npm ci
