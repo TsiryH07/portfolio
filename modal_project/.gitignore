@@ -37,3 +37,17 @@ Thumbs.db
 
 # TypeScript cache (généré)
 *.tsbuildinfo
+
+*storybook.log
+storybook-static
+/node_modules/.cache/storybook
+
+# Vite/Storybook cache
+/.vite
+
+# Test artifacts (playwright)
+/playwright-report
+/test-results
+
+# ESLint cache
+.eslintcache
