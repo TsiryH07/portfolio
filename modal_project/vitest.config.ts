@@ -1,4 +1,3 @@
-// @ts-nocheck
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
@@ -10,7 +9,7 @@ const dirname =
 
 const enableStorybookTests = process.env.STORYBOOK_TESTS === "true"
 
-const unitProject: any = {
+const unitProject: Record<string, unknown> = {
   test: {
     name: "unit",
     environment: "jsdom",
@@ -20,10 +19,10 @@ const unitProject: any = {
   },
 }
 
-const projects: any[] = [unitProject]
+const projects: Record<string, unknown>[] = [unitProject]
 
 if (enableStorybookTests) {
-  const storybookProject: any = {
+  const storybookProject: Record<string, unknown> = {
     plugins: [
       storybookTest({
         configDir: path.join(dirname, ".storybook"),
@@ -51,9 +50,8 @@ export default defineConfig({
       { find: "@", replacement: path.resolve(dirname, "src") },
     ],
   },
-  // Cast test config to avoid TS complaints for browser-enabled Storybook project.
   test: {
     passWithNoTests: true,
     projects,
-  } as any,
+  } as Record<string, unknown>,
 });
