@@ -9,21 +9,20 @@ const dirname =
 
 const enableStorybookTests = process.env.STORYBOOK_TESTS === "true"
 
-const projects: any[] = [
-  // 1) Tests unitaires / composants (Testing Library)
-  {
-    test: {
-      name: "unit",
-      environment: "jsdom",
-      globals: true,
-      setupFiles: ["src/test/setup.ts"],
-      include: ["src/**/tests/**/*.test.{ts,tsx}"],
-    },
+const unitProject: any = {
+  test: {
+    name: "unit",
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["src/test/setup.ts"],
+    include: ["src/**/tests/**/*.test.{ts,tsx}"],
   },
-]
+}
+
+const projects: any[] = [unitProject]
 
 if (enableStorybookTests) {
-  projects.push({
+  const storybookProject: any = {
     plugins: [
       storybookTest({
         configDir: path.join(dirname, ".storybook"),
@@ -39,7 +38,9 @@ if (enableStorybookTests) {
       },
       setupFiles: [".storybook/vitest.setup.ts"],
     },
-  })
+  }
+
+  projects.push(storybookProject)
 }
 
 export default defineConfig({
