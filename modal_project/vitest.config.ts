@@ -8,6 +8,12 @@ const dirname =
   typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  resolve: {
+    alias: [
+      { find: /^@\/(.*)$/, replacement: path.resolve(dirname, "src/$1") },
+      { find: "@", replacement: path.resolve(dirname, "src") },
+    ],
+  },
   test: {
     projects: [
       // 1) Tests unitaires / composants (Testing Library)

@@ -1,10 +1,5 @@
-/**
- * Variants (curation) : regrouper des combos fréquents de types.
- * Ici, c'est surtout pour la doc/consistance (un util de types n'a pas de "variants" UI).
- */
+export type VariantMap<Variant extends string, Value = string> = Record<Variant, Value>
 
-import type { WithAsChild, WithChildren, WithClassName, Prettify } from "../types";
-
-export type BaseUiProps = Prettify<WithClassName<WithChildren<{}>>>;
-
-export type BaseAsChildProps = Prettify<WithAsChild<BaseUiProps>>;
+export type VariantProps<Variants extends Record<string, unknown>> = {
+  [Key in keyof Variants]?: Variants[Key]
+}
