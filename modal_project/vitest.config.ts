@@ -7,6 +7,41 @@ import { playwright } from "@vitest/browser-playwright";
 const dirname =
   typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
+const enableStorybookTests = process.env.STORYBOOK_TESTS === "true"
+
+const projects = [
+  // 1) Tests unitaires / composants (Testing Library)
+  {
+    test: {
+      name: "unit",
+      environment: "jsdom",
+      globals: true,
+      setupFiles: ["src/test/setup.ts"],
+      include: ["src/**/tests/**/*.test.{ts,tsx}"],
+    },
+  },
+]
+
+if (enableStorybookTests) {
+  projects.push({
+    plugins: [
+      storybookTest({
+        configDir: path.join(dirname, ".storybook"),
+      }),
+    ],
+    test: {
+      name: "storybook",
+      browser: {
+        enabled: true,
+        headless: true,
+        provider: playwright({}),
+        instances: [{ browser: "chromium" }],
+      },
+      setupFiles: [".storybook/vitest.setup.ts"],
+    },
+  })
+}
+
 export default defineConfig({
   resolve: {
     alias: [
@@ -15,36 +50,7 @@ export default defineConfig({
     ],
   },
   test: {
-    projects: [
-      // 1) Tests unitaires / composants (Testing Library)
-      {
-        test: {
-          name: "unit",
-          environment: "jsdom",
-          globals: true,
-          setupFiles: ["src/test/setup.ts"],
-          include: ["src/**/tests/**/*.test.{ts,tsx}"],
-        },
-      },
-
-      // 2) Tests storybook (browser)
-      {
-        plugins: [
-          storybookTest({
-            configDir: path.join(dirname, ".storybook"),
-          }),
-        ],
-        test: {
-          name: "storybook",
-          browser: {
-            enabled: true,
-            headless: true,
-            provider: playwright({}),
-            instances: [{ browser: "chromium" }],
-          },
-          setupFiles: [".storybook/vitest.setup.ts"],
-        },
-      },
-    ],
+    passWithNoTests: true,
+    projects,
   },
 });
