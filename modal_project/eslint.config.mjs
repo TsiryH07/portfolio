@@ -22,6 +22,8 @@ const eslintConfig = defineConfig([
     // Generated output we do not want to lint:
     "storybook-static/**",
     "coverage/**",
+    // Skip config file that uses browser settings incompatible with base typing:
+    "vitest.config.ts",
   ]),
 ]);
 
