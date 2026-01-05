@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    // Add Vite client types so CSS side-effect imports are understood by the TS server.
+    "types": ["vite/client"]
+  },
+  "include": ["./preview.ts", "./typings.d.ts"]
+}
