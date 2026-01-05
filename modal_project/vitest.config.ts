@@ -50,8 +50,9 @@ export default defineConfig({
       { find: "@", replacement: path.resolve(dirname, "src") },
     ],
   },
+  // Cast test config to avoid TS complaints for browser-enabled Storybook project.
   test: {
     passWithNoTests: true,
     projects,
-  },
+  } as any,
 });
