@@ -9,7 +9,7 @@ const dirname =
 
 const enableStorybookTests = process.env.STORYBOOK_TESTS === "true"
 
-const projects = [
+const projects: any[] = [
   // 1) Tests unitaires / composants (Testing Library)
   {
     test: {
