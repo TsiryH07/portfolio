@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: "Utils/Types",
+  title: 'Utils/Types',
   parameters: {
     docs: {
       description: {
         story:
-          "Typed helpers such as WithChildren, Nullable, and DeepPartial help keep props and utilities safe.",
+          'Typed helpers such as WithChildren, Nullable, and DeepPartial help keep props and utilities safe.',
       },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj
+type Story = StoryObj;
 
 export const Overview: Story = {
   render: () => (
@@ -24,4 +24,4 @@ export const Overview: Story = {
       <p>Use &apos;DeepPartial&apos; to make nested objects optional.</p>
     </div>
   ),
-}
+};

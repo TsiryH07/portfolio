@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Slot } from "../slot"
+import { Slot } from '../slot';
 
 const meta: Meta<typeof Slot> = {
-  title: "Utils/Slot",
+  title: 'Utils/Slot',
   component: Slot,
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Slot>
+type Story = StoryObj<typeof Slot>;
 
 export const Default: Story = {
-  args: { as: "div" },
+  args: { as: 'div' },
   render: (args) => (
     <Slot {...args} className="rounded-md border border-dashed p-4">
       Slot content rendered as a div
     </Slot>
   ),
-}
+};
 
 export const AsChild: Story = {
   render: (args) => (
@@ -28,4 +28,4 @@ export const AsChild: Story = {
       </button>
     </Slot>
   ),
-}
+};

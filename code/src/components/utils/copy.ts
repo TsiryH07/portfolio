@@ -1,12 +1,12 @@
 export async function copyToClipboard(text: string) {
-  if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) {
-    return false
+  if (typeof navigator === 'undefined' || !navigator.clipboard?.writeText) {
+    return false;
   }
 
   try {
-    await navigator.clipboard.writeText(text)
-    return true
+    await navigator.clipboard.writeText(text);
+    return true;
   } catch {
-    return false
+    return false;
   }
 }
