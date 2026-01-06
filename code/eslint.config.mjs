@@ -1,29 +1,31 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import prettier from 'eslint-config-prettier';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  prettier,
   {
-    files: ["vitest.config.ts"],
+    files: ['vitest.config.ts'],
     rules: {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-explicit-any": "off",
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
     // Generated output we do not want to lint:
-    "storybook-static/**",
-    "coverage/**",
+    'storybook-static/**',
+    'coverage/**',
     // Skip config file that uses browser settings incompatible with base typing:
-    "vitest.config.ts",
+    'vitest.config.ts',
   ]),
 ]);
 

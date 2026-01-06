@@ -7,13 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -67,13 +71,26 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-storybook": "^10.1.10",
+    "husky": "^9.1.7",
     "jsdom": "^27.3.0",
+    "lint-staged": "^16.2.7",
     "playwright": "^1.57.0",
+    "prettier": "^3.7.4",
     "storybook": "^10.1.10",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^7.3.0",
     "vitest": "^4.0.16"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
