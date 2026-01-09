@@ -6,6 +6,7 @@ export * from './constants';
 export * from './copy';
 export * from './format';
 export * from './logger';
+export * from './reveal';
 export * from './slot';
 export * from './sleep';
 export * from './types';

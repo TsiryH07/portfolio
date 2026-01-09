@@ -1,0 +1,70 @@
+<svg
+  width="160"
+  height="160"
+  viewBox="0 0 160 160"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="about-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef2ff" />
+      <stop offset="100%" stop-color="#dbeafe" />
+    </linearGradient>
+    <radialGradient
+      id="about-glow"
+      cx="0"
+      cy="0"
+      r="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(40 28) rotate(45) scale(120)"
+    >
+      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="about-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e0e7ff" />
+    </linearGradient>
+    <linearGradient id="about-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#about-bg)" />
+  <rect width="160" height="160" rx="32" fill="url(#about-glow)" />
+  <rect x="16" y="28" width="62" height="6" rx="3" fill="#93c5fd" opacity="0.55" />
+  <rect x="16" y="42" width="54" height="6" rx="3" fill="#c7d2fe" opacity="0.8" />
+  <rect x="16" y="58" width="46" height="6" rx="3" fill="#c7d2fe" opacity="0.75" />
+  <g transform="rotate(-5 112 80)">
+    <rect
+      x="78"
+      y="22"
+      width="64"
+      height="96"
+      rx="18"
+      fill="url(#about-card)"
+      stroke="#93c5fd"
+      stroke-opacity="0.5"
+      stroke-width="3"
+    />
+    <circle cx="110" cy="52" r="14" fill="url(#about-accent)" />
+    <path
+      d="M90 94c6-12 14-18 20-18s14 6 20 18"
+      stroke="#1d4ed8"
+      stroke-opacity="0.35"
+      stroke-width="6"
+      stroke-linecap="round"
+    />
+    <rect x="88" y="72" width="44" height="4" rx="2" fill="#93c5fd" opacity="0.6" />
+  </g>
+  <rect
+    x="18"
+    y="18"
+    width="124"
+    height="124"
+    rx="26"
+    stroke="#1d4ed8"
+    stroke-opacity="0.18"
+    stroke-width="3"
+  />
+</svg>

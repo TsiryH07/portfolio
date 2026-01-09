@@ -1,5 +1,34 @@
 {
   "HomePage": {
-    "title": "Bonjour !"
+    "title": "Bonjour !",
+    "badge": "Portfolio",
+    "name": "Votre Nom",
+    "role": "UI Designer",
+    "description": "Je cree des interfaces modernes et des experiences web claires.",
+    "cards": {
+      "title": "Explorer",
+      "subtitle": "Choisis une section pour decouvrir mon univers.",
+      "cta": "Decouvrir",
+      "about": {
+        "title": "A propos",
+        "description": "Mon parcours, mes valeurs et ma vision du design.",
+        "imageAlt": "Illustration de profil"
+      },
+      "projects": {
+        "title": "Projets",
+        "description": "Une selection de realisations creatives et performantes.",
+        "imageAlt": "Illustration de projets"
+      },
+      "skills": {
+        "title": "Competences",
+        "description": "Les outils et expertises qui donnent vie aux idees.",
+        "imageAlt": "Illustration de competences"
+      },
+      "story": {
+        "title": "Story",
+        "description": "Les moments, declics et etapes qui ont construit mon parcours.",
+        "imageAlt": "Illustration de story"
+      }
+    }
   }
 }

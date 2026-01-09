@@ -11,7 +11,13 @@ const dirname =
 
 const enableStorybookTests = process.env.STORYBOOK_TESTS === 'true';
 
+const aliases = [
+  { find: /^@\/(.*)$/, replacement: path.resolve(dirname, 'src/$1') },
+  { find: '@', replacement: path.resolve(dirname, 'src') },
+];
+
 const unitProject: Record<string, unknown> = {
+  resolve: { alias: aliases },
   test: {
     name: 'unit',
     environment: 'jsdom',
@@ -46,12 +52,7 @@ if (enableStorybookTests) {
 }
 
 export default defineConfig({
-  resolve: {
-    alias: [
-      { find: /^@\/(.*)$/, replacement: path.resolve(dirname, 'src/$1') },
-      { find: '@', replacement: path.resolve(dirname, 'src') },
-    ],
-  },
+  resolve: { alias: aliases },
   test: {
     passWithNoTests: true,
     projects,
