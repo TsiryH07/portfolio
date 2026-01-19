@@ -1,5 +1,34 @@
 {
   "HomePage": {
-    "title": "Hello!"
+    "title": "Hello!",
+    "badge": "Portfolio",
+    "name": "Your Name",
+    "role": "UI Designer",
+    "description": "I design modern interfaces and clear web experiences.",
+    "cards": {
+      "title": "Explore",
+      "subtitle": "Pick a section to discover my world.",
+      "cta": "Explore",
+      "about": {
+        "title": "About",
+        "description": "My story, values, and design approach.",
+        "imageAlt": "Profile illustration"
+      },
+      "projects": {
+        "title": "Projects",
+        "description": "A curated selection of creative, high-performing work.",
+        "imageAlt": "Projects illustration"
+      },
+      "skills": {
+        "title": "Skills",
+        "description": "Tools and strengths that bring ideas to life.",
+        "imageAlt": "Skills illustration"
+      },
+      "story": {
+        "title": "Story",
+        "description": "Moments, sparks, and milestones that shaped my journey.",
+        "imageAlt": "Story illustration"
+      }
+    }
   }
 }
