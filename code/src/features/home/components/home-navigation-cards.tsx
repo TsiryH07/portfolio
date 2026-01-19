@@ -24,18 +24,18 @@ export function HomeNavigationCards({
   cards,
 }: HomeNavigationCardsProps) {
   return (
-    <section className="w-full pb-16 pt-8">
+    <section className="w-full pb-14 pt-6 sm:pb-16 sm:pt-8">
       <div className="space-y-8">
         <div className="space-y-3" data-reveal>
           <p className="inline-flex w-fit items-center rounded-full border border-border/70 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-primary">
             {title}
           </p>
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
             {subtitle}
           </h2>
         </div>
         <div className="rounded-[32px] p-4 sm:p-6">
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
             <div data-reveal>
               <HomeNavAboutCard card={cards.about} />
             </div>
@@ -89,7 +89,7 @@ function HomeNavCardShell({
         padding="none"
         className={cn(
           "relative h-full w-full overflow-hidden rounded-3xl border border-border/70 bg-surface/90 shadow-soft transition-all duration-300 ease-[var(--transition-smooth)] group-hover:-translate-y-1 group-hover:border-primary/30 group-hover:shadow-soft-lg",
-          "aspect-[5/3] before:pointer-events-none before:absolute before:inset-2 before:rounded-[24px] before:border before:border-border/60 before:bg-surface/70 before:content-[''] after:pointer-events-none after:absolute after:inset-x-6 after:top-3 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/70 after:to-transparent",
+          "aspect-[4/3] sm:aspect-[5/3] before:pointer-events-none before:absolute before:inset-2 before:rounded-[24px] before:border before:border-border/60 before:bg-surface/70 before:content-[''] after:pointer-events-none after:absolute after:inset-x-6 after:top-3 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/70 after:to-transparent",
           className,
         )}
       >
@@ -102,7 +102,7 @@ function HomeNavCardShell({
 function HomeNavAboutCard({card}: HomeNavCardProps) {
   return (
     <HomeNavCardShell card={card}>
-      <div className="relative z-10 flex h-full items-center justify-between gap-4 p-5 sm:p-6">
+      <div className="relative z-10 flex h-full flex-col items-start justify-between gap-4 p-5 sm:flex-row sm:items-center sm:p-6">
         <div className="space-y-3">
           <div className="flex items-center gap-2" aria-hidden="true">
             <span className="h-1.5 w-1.5 rounded-full bg-primary/70" />
@@ -115,7 +115,7 @@ function HomeNavAboutCard({card}: HomeNavCardProps) {
             {card.description}
           </CardDescription>
         </div>
-        <div className="relative h-24 w-20 shrink-0 sm:h-28 sm:w-24">
+        <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-24">
           <div className="absolute inset-0 rounded-[22px] border border-border/70 bg-gradient-to-br from-white to-blue-50 shadow-soft" />
           <div className="absolute -bottom-4 -right-4 h-14 w-14 rounded-full bg-primary/15 blur-2xl" />
           <Image
@@ -141,21 +141,22 @@ function HomeNavConnectionsCard({card}: HomeNavCardProps) {
   return (
     <HomeNavCardShell card={card}>
       <div className="relative z-10 flex h-full flex-col justify-between gap-4 p-5 text-center sm:p-6">
-        <div className="relative flex items-center justify-center gap-3">
+        <div className="relative flex items-center justify-center gap-2 sm:gap-3">
           <div
-            className="pointer-events-none absolute left-6 right-6 top-1/2 h-px -translate-y-1/2 bg-border/70"
+            className="pointer-events-none absolute left-4 right-4 top-1/2 h-px -translate-y-1/2 bg-border/70 sm:left-6 sm:right-6"
             aria-hidden="true"
           />
           {circles.map((circle) => (
             <div
               key={circle.id}
               className={cn(
-                "relative grid h-12 w-12 place-items-center rounded-full border border-border/70 bg-surface shadow-soft",
-                circle.isActive && "h-16 w-16 border-primary/40",
+                "relative grid h-10 w-10 place-items-center rounded-full border border-border/70 bg-surface shadow-soft sm:h-12 sm:w-12",
+                circle.isActive &&
+                  "h-12 w-12 border-primary/40 sm:h-16 sm:w-16",
               )}
             >
               {circle.isActive ? (
-                <div className="relative h-10 w-10 overflow-hidden rounded-full border border-border/70 bg-surface-muted">
+                <div className="relative h-8 w-8 overflow-hidden rounded-full border border-border/70 bg-surface-muted sm:h-10 sm:w-10">
                   <Image
                     src={card.imageSrc}
                     alt={card.imageAlt}
@@ -166,7 +167,7 @@ function HomeNavConnectionsCard({card}: HomeNavCardProps) {
                   />
                 </div>
               ) : (
-                <div className="h-6 w-6 rounded-full border border-border/70 bg-surface-muted" />
+                <div className="h-5 w-5 rounded-full border border-border/70 bg-surface-muted sm:h-6 sm:w-6" />
               )}
             </div>
           ))}
@@ -200,7 +201,7 @@ function HomeNavSkillsCard({card}: HomeNavCardProps) {
           {[0, 1, 2].map((index) => (
             <div
               key={`tool-${index}`}
-              className="grid h-14 w-14 place-items-center rounded-2xl border border-border/70 bg-white shadow-soft transition-transform duration-300 group-hover:-translate-y-1"
+              className="grid h-12 w-12 place-items-center rounded-2xl border border-border/70 bg-white shadow-soft transition-transform duration-300 group-hover:-translate-y-1 sm:h-14 sm:w-14"
             >
               <Image
                 src={card.imageSrc}
@@ -223,7 +224,7 @@ function HomeNavStoryCard({card}: HomeNavCardProps) {
 
   return (
     <HomeNavCardShell card={card}>
-      <div className="relative z-10 grid h-full grid-cols-[1.05fr_0.95fr] gap-4 p-5 sm:p-6">
+      <div className="relative z-10 grid h-full grid-cols-1 gap-4 p-5 sm:grid-cols-[1.05fr_0.95fr] sm:p-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 shrink-0">
@@ -247,11 +248,11 @@ function HomeNavStoryCard({card}: HomeNavCardProps) {
           </CardDescription>
         </div>
         <div className="rounded-2xl border border-border/70 bg-surface/80 p-3 shadow-soft">
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-6 gap-2 sm:grid-cols-4">
             {days.map((day) => (
               <div
                 key={`day-${day}`}
-                className="h-6 w-6 rounded-lg border border-border/60 bg-surface-muted"
+                className="h-6 w-6 rounded-lg border border-border/60 bg-surface-muted sm:h-6 sm:w-6"
               />
             ))}
           </div>
