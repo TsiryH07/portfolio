@@ -2,8 +2,16 @@
 import "server-only";
 import { createClient } from "next-sanity";
 
-function requiredEnv(name: string): string {
-  const v = process.env[name];
+const envFallbacks = {
+  SANITY_PROJECT_ID: "flvnz8c6",
+  SANITY_DATASET: "production",
+  SANITY_API_VERSION: "2026-01-07",
+} as const;
+
+type EnvKey = keyof typeof envFallbacks;
+
+function requiredEnv(name: EnvKey): string {
+  const v = process.env[name] ?? envFallbacks[name];
   if (!v) throw new Error(`Missing env var: ${name}`);
   return v;
 }
