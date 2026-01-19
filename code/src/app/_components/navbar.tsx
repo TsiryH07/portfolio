@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   {value: "about", label: "About", href: "/about"},
   {value: "skills", label: "Skills", href: "/skills"},
   {value: "projects", label: "Projects", href: "/projects"},
+  {value: "cv", label: "CV", href: "/cv"},
   {value: "story", label: "Story", href: "/story"},
 ];
 
@@ -33,7 +34,16 @@ const getActiveValue = (pathname: string | null) => {
 
 export function Navbar() {
   const pathname = usePathname();
-  const activeValue = React.useMemo(() => getActiveValue(pathname), [pathname]);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const activeValue = React.useMemo(
+    () => (mounted ? getActiveValue(pathname) : undefined),
+    [mounted, pathname],
+  );
 
   return (
     <nav className="w-full py-3">

@@ -1,5 +1,6 @@
 // portfolio/schemaTypes/index.ts
 import aboutPage from "./aboutPage";
+import cvPage from "./cvPage";
 import focusTagsGroup from "./focusTagsGroup";
 import homePage from "./homePage";
 import project from "./project";
@@ -13,6 +14,7 @@ export const schemaTypes = [
   siteSettings,
   homePage,
   aboutPage,
+  cvPage,
   skillsPage,
   projectsPage,
   storyPage,

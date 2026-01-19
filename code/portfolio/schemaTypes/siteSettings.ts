@@ -11,7 +11,6 @@ export default defineType({
       type: "string",
       validation: (rule) => rule.required(),
     }),
-    defineField({name: "tagline", title: "Tagline", type: "string"}),
     defineField({
       name: "name",
       title: "Name",
@@ -48,7 +47,6 @@ export default defineType({
               validation: (rule) => rule.required(),
             }),
             defineField({name: "url", title: "URL", type: "url"}),
-            defineField({name: "icon", title: "Icon", type: "string"}),
           ],
         },
       ],
@@ -73,7 +71,7 @@ export default defineType({
   preview: {
     select: {
       title: "title",
-      subtitle: "tagline",
+      subtitle: "role",
     },
   },
 });

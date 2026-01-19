@@ -34,7 +34,7 @@ export function HomeHero({
         <div className="glass-section relative grid gap-12 border border-border/60 bg-background/40 p-8 sm:p-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div
             className="relative flex items-center justify-center"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-offset={24}
             style={getRevealStyle({offset: 24})}
           >
@@ -49,7 +49,7 @@ export function HomeHero({
           </div>
           <div
             className="space-y-6"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-delay={150}
             style={getRevealStyle({delay: 150})}
           >

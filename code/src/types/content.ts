@@ -78,6 +78,52 @@ export type ProjectsPageData = {
   sectionSubtitle?: string;
 } | null;
 
+export type CvPageData = {
+  heroTitle?: string;
+  heroSubtitle?: string;
+  summary?: string;
+  highlights?: string[];
+  experience?: Array<{
+    role?: string;
+    company?: string;
+    location?: string;
+    period?: string;
+    summary?: string;
+    achievements?: string[];
+    stack?: string[];
+  }>;
+  education?: Array<{
+    degree?: string;
+    school?: string;
+    period?: string;
+  }>;
+  certifications?: Array<{
+    title?: string;
+    issuer?: string;
+    year?: string;
+  }>;
+  languages?: Array<{
+    name?: string;
+    level?: string;
+  }>;
+  skillGroups?: Array<{
+    title?: string;
+    items?: string[];
+  }>;
+  tools?: string[];
+  links?: Array<{label?: string; url?: string}>;
+  featuredProjects?: Array<{
+    _id?: string;
+    title?: string;
+    slug?: string;
+    role?: string;
+    summary?: string;
+    stack?: string[];
+    links?: {live?: string; github?: string};
+    coverImage?: SanityImage;
+  }>;
+} | null;
+
 export type StoryPageData = {
   heroTitle?: string;
   heroSubtitle?: string;
@@ -91,7 +137,6 @@ export type StoryPageData = {
 
 export type SiteSettingsData = {
   title?: string;
-  tagline?: string;
   name?: string;
   role?: string;
   description?: string;
@@ -101,7 +146,7 @@ export type SiteSettingsData = {
   availability?: string;
   avatar?: SanityImage;
   resume?: {asset?: {url?: string}};
-  socials?: Array<{label?: string; url?: string; icon?: string}>;
+  socials?: Array<{label?: string; url?: string}>;
   seo?: {
     title?: string;
     description?: string;

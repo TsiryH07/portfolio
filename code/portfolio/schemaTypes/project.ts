@@ -19,10 +19,6 @@ export default defineType({
     defineField({ name: "stack", title: "Stack", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "role", title: "Role", type: "string" }),
     defineField({ name: "summary", title: "Summary", type: "text" }),
-    defineField({ name: "client", title: "Client", type: "string" }),
-    defineField({ name: "year", title: "Year", type: "string" }),
-    defineField({ name: "category", title: "Category", type: "string" }),
-    defineField({ name: "duration", title: "Duration", type: "string" }),
     defineField({ name: "problem", title: "Problem", type: "text" }),
     defineField({ name: "solution", title: "Solution", type: "text" }),
     defineField({ name: "results", title: "Results", type: "text" }),
@@ -41,35 +37,6 @@ export default defineType({
       type: "image",
       options: { hotspot: true },
       fields: [defineField({ name: "alt", title: "Alt", type: "string" })],
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "gallery",
-      title: "Gallery",
-      type: "array",
-      of: [
-        {
-          type: "image",
-          options: { hotspot: true },
-          fields: [defineField({ name: "alt", title: "Alt", type: "string" })],
-        },
-      ],
-    }),
-    defineField({
-      name: "testimonials",
-      title: "Testimonials",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          name: "testimonial",
-          fields: [
-            defineField({ name: "quote", title: "Quote", type: "text" }),
-            defineField({ name: "name", title: "Name", type: "string" }),
-            defineField({ name: "role", title: "Role", type: "string" }),
-          ],
-        },
-      ],
     }),
   ],
 });

@@ -22,17 +22,11 @@ export const projectsQuery = groq`
     stack,
     role,
     summary,
-    client,
-    year,
-    category,
-    duration,
     problem,
     solution,
     results,
     links,
     coverImage { ${imageFields} },
-    gallery[] { ${imageFields} },
-    testimonials
   }
 `;
 
@@ -47,24 +41,17 @@ export const projectBySlugQuery = groq`
     stack,
     role,
     summary,
-    client,
-    year,
-    category,
-    duration,
     problem,
     solution,
     results,
     links,
     coverImage { ${imageFields} },
-    gallery[] { ${imageFields} },
-    testimonials
   }
 `;
 
 export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
     title,
-    tagline,
     name,
     role,
     description,
@@ -74,7 +61,10 @@ export const siteSettingsQuery = groq`
     availability,
     avatar { ${imageFields} },
     resume,
-    socials,
+    socials[] {
+      label,
+      url
+    },
     seo {
       title,
       description,
@@ -163,6 +153,54 @@ export const projectsPageQuery = groq`
     heroSubtitle,
     sectionTitle,
     sectionSubtitle
+  }
+`;
+
+export const cvPageQuery = groq`
+  *[_type == "cvPage"][0] {
+    heroTitle,
+    heroSubtitle,
+    summary,
+    highlights,
+    experience[] {
+      role,
+      company,
+      location,
+      period,
+      summary,
+      achievements,
+      stack
+    },
+    education[] {
+      degree,
+      school,
+      period
+    },
+    certifications[] {
+      title,
+      issuer,
+      year
+    },
+    languages[] {
+      name,
+      level
+    },
+    skillGroups[] {
+      title,
+      items
+    },
+    tools,
+    links,
+    featuredProjects[]-> {
+      _id,
+      title,
+      "slug": slug.current,
+      role,
+      summary,
+      stack,
+      links,
+      coverImage { ${imageFields} }
+    }
   }
 `;
 

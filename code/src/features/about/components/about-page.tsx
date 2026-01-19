@@ -56,7 +56,7 @@ export async function AboutPage() {
             <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div
                 className="space-y-6"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-offset={18}
                 style={getRevealStyle({offset: 18})}
               >
@@ -70,7 +70,7 @@ export async function AboutPage() {
                   <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
                     {heroTitle}
                   </h1>
-                  <p className="text-base text-foreground/70 sm:text-lg">
+                  <p className="max-w-xl text-base text-foreground/70 line-clamp-2 sm:text-lg">
                     {heroSubtitle}
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export async function AboutPage() {
               </div>
               <div
                 className="relative"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={140}
                 style={getRevealStyle({delay: 140})}
               >
@@ -147,7 +147,7 @@ export async function AboutPage() {
                     <p className="text-xs uppercase tracking-[0.26em] text-muted-foreground">
                       Objectif
                     </p>
-                    <p className="mt-2 text-sm text-foreground/70">
+                    <p className="mt-2 text-sm text-foreground/70 line-clamp-2">
                       {summary}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ export async function AboutPage() {
               <Card
                 key={`${stat.label ?? stat.value ?? index}`}
                 className="relative overflow-hidden border-border/70 bg-surface/80"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={revealDelay}
                 style={getRevealStyle({delay: revealDelay})}
               >
@@ -184,30 +184,40 @@ export async function AboutPage() {
           <section className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
             <div
               className="space-y-6"
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-offset={16}
               style={getRevealStyle({offset: 16})}
             >
               <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-xs uppercase tracking-[0.3em] text-primary/70">
                   Methode
                 </p>
                 <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Un process simple pour des resultats rapides.
+                  <span className="bg-gradient-to-r from-primary via-sky-400 to-emerald-300 bg-clip-text text-transparent">
+                    Un process vif pour des resultats visibles.
+                  </span>
                 </h2>
-                <p className="text-sm text-muted-foreground">
-                  On part de votre probleme, on clarifie l&apos;offre, on ajuste la
-                  page, puis on livre une version qui convertit mieux.
+                <p className="max-w-md text-sm text-muted-foreground">
+                  On clarifie, on prototype, on lance. Simple, clair, et un peu
+                  plus joyeux.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {highlights.map((item) => (
                   <Card
                     key={item.title}
-                    className="border-border/70 bg-surface/80"
+                    className="group relative overflow-hidden border-border/70 bg-surface/80"
                   >
-                    <CardTitle className="text-lg">{item.title}</CardTitle>
-                    <CardDescription>{item.description}</CardDescription>
+                    <div className="absolute -right-8 -top-8 h-16 w-16 rounded-full bg-primary/10 blur-2xl" />
+                    <div className="relative space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-primary/70 shadow-soft" />
+                        <CardTitle className="text-base">{item.title}</CardTitle>
+                      </div>
+                      <CardDescription className="text-foreground/70">
+                        {item.description}
+                      </CardDescription>
+                    </div>
                   </Card>
                 ))}
               </div>
@@ -229,16 +239,18 @@ export async function AboutPage() {
               <div className="absolute -right-10 -top-20 h-32 w-32 rounded-full bg-sky-400/20 blur-[100px]" />
             <div
               className="space-y-6"
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={120}
               style={getRevealStyle({delay: 120})}
             >
                 <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-xs uppercase tracking-[0.3em] text-emerald-200/80">
                     Parcours
                   </p>
                   <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                    Pourquoi travailler ensemble.
+                    <span className="bg-gradient-to-r from-primary via-sky-400 to-emerald-300 bg-clip-text text-transparent">
+                      Pourquoi travailler ensemble.
+                    </span>
                   </h2>
                 </div>
                 <div className="space-y-5">
@@ -247,12 +259,12 @@ export async function AboutPage() {
                       key={`${item.role ?? item.period ?? index}`}
                       className="relative pl-6 before:absolute before:left-1 before:top-2 before:h-full before:w-px before:bg-border/70"
                     >
-                      <span className="absolute left-0 top-2 h-3 w-3 rounded-full border border-border/70 bg-surface shadow-soft" />
+                      <span className="absolute left-0 top-2 h-3 w-3 rounded-full border border-primary/40 bg-primary/20 shadow-soft" />
                       <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
                         {item.period}
                       </p>
                       <p className="text-base font-semibold">{item.role}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-foreground/70">
                         {item.description}
                       </p>
                     </div>
@@ -264,7 +276,7 @@ export async function AboutPage() {
 
           <section
             className="glass-card flex flex-col gap-6 p-8 sm:flex-row sm:items-center sm:justify-between"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-delay={180}
             style={getRevealStyle({delay: 180})}
           >

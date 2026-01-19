@@ -52,32 +52,72 @@ const defaultSkillBlocks: SkillBlock[] = [
   },
 ];
 
+const normalizeToolKey = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const toolLogoFallbacks = new Map<string, {src: string; alt: string}>([
+  [normalizeToolKey("HTML/CSS"), {src: "/logos/logo-htmlcss.svg", alt: "HTML/CSS logo"}],
+  [normalizeToolKey("JavaScript"), {src: "/logos/logo-javascript.svg", alt: "JavaScript logo"}],
+  [normalizeToolKey("React"), {src: "/logos/logo-react.svg", alt: "React logo"}],
+  [normalizeToolKey("Next.js"), {src: "/logos/logo-nextjs.svg", alt: "Next.js logo"}],
+  [normalizeToolKey("Node.js"), {src: "/logos/logo-nodejs.svg", alt: "Node.js logo"}],
+  [normalizeToolKey("Java"), {src: "/logos/logo-java.svg", alt: "Java logo"}],
+  [normalizeToolKey("Spring Boot"), {src: "/logos/logo-springboot.svg", alt: "Spring Boot logo"}],
+  [normalizeToolKey("PHP"), {src: "/logos/logo-php.svg", alt: "PHP logo"}],
+  [normalizeToolKey("Laravel"), {src: "/logos/logo-laravel.svg", alt: "Laravel logo"}],
+  [normalizeToolKey("Python"), {src: "/logos/logo-python.svg", alt: "Python logo"}],
+  [normalizeToolKey("PostgreSQL"), {src: "/logos/logo-postgresql.svg", alt: "PostgreSQL logo"}],
+  [normalizeToolKey("MySQL"), {src: "/logos/logo-mysql.svg", alt: "MySQL logo"}],
+  [normalizeToolKey("Oracle"), {src: "/logos/logo-oracle.svg", alt: "Oracle logo"}],
+  [normalizeToolKey("Supabase"), {src: "/logos/logo-supabase.svg", alt: "Supabase logo"}],
+  [normalizeToolKey("Vercel"), {src: "/logos/logo-vercel.svg", alt: "Vercel logo"}],
+  [normalizeToolKey("Tailwind"), {src: "/logos/logo-tailwindcss.svg", alt: "Tailwind logo"}],
+  [normalizeToolKey("Tailwind CSS"), {src: "/logos/logo-tailwindcss.svg", alt: "Tailwind logo"}],
+  [normalizeToolKey("MUI"), {src: "/logos/logo-mui.svg", alt: "MUI logo"}],
+  [normalizeToolKey("shadcn/ui"), {src: "/logos/logo-shadcnui.svg", alt: "shadcn/ui logo"}],
+  [normalizeToolKey("Git"), {src: "/logos/logo-git.svg", alt: "Git logo"}],
+  [normalizeToolKey("GitHub"), {src: "/logos/logo-github.svg", alt: "GitHub logo"}],
+  [normalizeToolKey("VS Code"), {src: "/logos/logo-vscode.svg", alt: "VS Code logo"}],
+  [normalizeToolKey("n8n"), {src: "/logos/logo-n8n.svg", alt: "n8n logo"}],
+]);
+
+const getFallbackLogo = (name?: string) => {
+  if (!name) return null;
+  return toolLogoFallbacks.get(normalizeToolKey(name)) ?? null;
+};
+
 const defaultToolHighlights: ToolHighlight[] = [
-  {name: "Figma", logoSrc: "/logos/logo-figma.svg", logoAlt: "Figma logo"},
-  {name: "Framer", logoSrc: "/logos/logo-framer.svg", logoAlt: "Framer logo"},
-  {name: "Notion", logoSrc: "/logos/logo-notion.svg", logoAlt: "Notion logo"},
-  {name: "Webflow", logoSrc: "/logos/logo-webflow.svg", logoAlt: "Webflow logo"},
+  {name: "HTML/CSS", logoSrc: "/logos/logo-htmlcss.svg", logoAlt: "HTML/CSS logo"},
+  {name: "JavaScript", logoSrc: "/logos/logo-javascript.svg", logoAlt: "JavaScript logo"},
+  {name: "React", logoSrc: "/logos/logo-react.svg", logoAlt: "React logo"},
   {name: "Next.js", logoSrc: "/logos/logo-nextjs.svg", logoAlt: "Next.js logo"},
-  {name: "Slack", logoSrc: "/logos/logo-slack.svg", logoAlt: "Slack logo"},
+  {name: "Node.js", logoSrc: "/logos/logo-nodejs.svg", logoAlt: "Node.js logo"},
+  {name: "Tailwind", logoSrc: "/logos/logo-tailwindcss.svg", logoAlt: "Tailwind logo"},
 ];
 
 const defaultToolGrid: ToolGridItem[] = [
-  {name: "Raycast", note: "Recherche rapide", logoSrc: "/logos/logo-raycast.svg", logoAlt: "Raycast logo"},
-  {name: "Arc", note: "Navigation propre", logoSrc: "/logos/logo-arc.svg", logoAlt: "Arc logo"},
-  {name: "VSCode", note: "Dev rapide", logoSrc: "/logos/logo-vscode.svg", logoAlt: "VSCode logo"},
-  {name: "Mymind", note: "Ideas & moodboard", logoSrc: "/logos/logo-mymind.svg", logoAlt: "Mymind logo"},
-  {name: "Obsidian", note: "Notes claires", logoSrc: "/logos/logo-obsidian.svg", logoAlt: "Obsidian logo"},
-  {name: "Notion", note: "Specs & suivi", logoSrc: "/logos/logo-notion.svg", logoAlt: "Notion logo"},
-  {name: "Tana", note: "Structuration", logoSrc: "/logos/logo-tana.svg", logoAlt: "Tana logo"},
-  {name: "Spotify", note: "Focus music", logoSrc: "/logos/logo-spotify.svg", logoAlt: "Spotify logo"},
-  {name: "Figma", note: "Design & prototypage", logoSrc: "/logos/logo-figma.svg", logoAlt: "Figma logo"},
-  {name: "Things", note: "Taches claires", logoSrc: "/logos/logo-things.svg", logoAlt: "Things logo"},
-  {name: "Fantastical", note: "Planning", logoSrc: "/logos/logo-fantastical.svg", logoAlt: "Fantastical logo"},
-  {name: "1Password", note: "Securite", logoSrc: "/logos/logo-1password.svg", logoAlt: "1Password logo"},
-  {name: "Framer", note: "Landing pages", logoSrc: "/logos/logo-framer.svg", logoAlt: "Framer logo"},
-  {name: "Cleanshot", note: "Capture", logoSrc: "/logos/logo-cleanshot.svg", logoAlt: "Cleanshot logo"},
-  {name: "PixelSnap", note: "Mesures", logoSrc: "/logos/logo-pixelsnap.svg", logoAlt: "PixelSnap logo"},
-  {name: "Linear", note: "Roadmap", logoSrc: "/logos/logo-linear.svg", logoAlt: "Linear logo"},
+  {name: "HTML/CSS", note: "Base UI", logoSrc: "/logos/logo-htmlcss.svg", logoAlt: "HTML/CSS logo"},
+  {name: "JavaScript", note: "Interactions", logoSrc: "/logos/logo-javascript.svg", logoAlt: "JavaScript logo"},
+  {name: "React", note: "Composants", logoSrc: "/logos/logo-react.svg", logoAlt: "React logo"},
+  {name: "Next.js", note: "Framework", logoSrc: "/logos/logo-nextjs.svg", logoAlt: "Next.js logo"},
+  {name: "Node.js", note: "API", logoSrc: "/logos/logo-nodejs.svg", logoAlt: "Node.js logo"},
+  {name: "Java", note: "Back-end", logoSrc: "/logos/logo-java.svg", logoAlt: "Java logo"},
+  {name: "Spring Boot", note: "API", logoSrc: "/logos/logo-springboot.svg", logoAlt: "Spring Boot logo"},
+  {name: "PHP", note: "Back-end", logoSrc: "/logos/logo-php.svg", logoAlt: "PHP logo"},
+  {name: "Laravel", note: "Framework", logoSrc: "/logos/logo-laravel.svg", logoAlt: "Laravel logo"},
+  {name: "Python", note: "Automations", logoSrc: "/logos/logo-python.svg", logoAlt: "Python logo"},
+  {name: "PostgreSQL", note: "BDD", logoSrc: "/logos/logo-postgresql.svg", logoAlt: "PostgreSQL logo"},
+  {name: "MySQL", note: "BDD", logoSrc: "/logos/logo-mysql.svg", logoAlt: "MySQL logo"},
+  {name: "Oracle", note: "BDD", logoSrc: "/logos/logo-oracle.svg", logoAlt: "Oracle logo"},
+  {name: "Supabase", note: "Backend", logoSrc: "/logos/logo-supabase.svg", logoAlt: "Supabase logo"},
+  {name: "Vercel", note: "Hosting", logoSrc: "/logos/logo-vercel.svg", logoAlt: "Vercel logo"},
+  {name: "Tailwind", note: "Styles", logoSrc: "/logos/logo-tailwindcss.svg", logoAlt: "Tailwind logo"},
+  {name: "MUI", note: "UI kit", logoSrc: "/logos/logo-mui.svg", logoAlt: "MUI logo"},
+  {name: "shadcn/ui", note: "UI kit", logoSrc: "/logos/logo-shadcnui.svg", logoAlt: "shadcn/ui logo"},
+  {name: "Git", note: "Versioning", logoSrc: "/logos/logo-git.svg", logoAlt: "Git logo"},
+  {name: "GitHub", note: "Repo", logoSrc: "/logos/logo-github.svg", logoAlt: "GitHub logo"},
+  {name: "VS Code", note: "Dev", logoSrc: "/logos/logo-vscode.svg", logoAlt: "VS Code logo"},
+  {name: "n8n", note: "Workflow", logoSrc: "/logos/logo-n8n.svg", logoAlt: "n8n logo"},
 ];
 
 const defaultDeliverables: Deliverable[] = [
@@ -136,12 +176,16 @@ export async function getSkillsPageViewModel(): Promise<SkillsPageViewModel> {
   }));
 
   const toolGrid = skillsPage?.tools?.length
-    ? skillsPage.tools.map((tool) => ({
-        name: tool.name ?? "Tool",
-        note: tool.note ?? "",
-        logoSrc: tool.logo?.asset?.url ?? "/logos/logo-figma.svg",
-        logoAlt: tool.logo?.alt ?? tool.name ?? "Tool logo",
-      }))
+    ? skillsPage.tools.map((tool) => {
+        const name = tool.name ?? "Tool";
+        const fallbackLogo = getFallbackLogo(name);
+        return {
+          name,
+          note: tool.note ?? "",
+          logoSrc: tool.logo?.asset?.url ?? fallbackLogo?.src ?? "/logos/logo-htmlcss.svg",
+          logoAlt: tool.logo?.alt ?? fallbackLogo?.alt ?? `${name} logo`,
+        };
+      })
     : defaultToolGrid;
 
   const toolHighlights = toolGrid.length > 0

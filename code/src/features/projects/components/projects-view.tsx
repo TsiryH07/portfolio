@@ -2,7 +2,7 @@ import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/data-dis
 
 export function ProjectsView() {
   return (
-    <Card className="glass-card" data-reveal data-reveal-visible="false">
+    <Card className="glass-card" data-reveal>
       <CardHeader>
         <CardTitle>Projets</CardTitle>
       </CardHeader>

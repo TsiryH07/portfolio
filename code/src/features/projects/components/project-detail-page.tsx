@@ -49,7 +49,7 @@ export async function ProjectDetailPage({slug}: {slug: string}) {
             <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div
                 className="space-y-6"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-offset={18}
                 style={getRevealStyle({offset: 18})}
               >
@@ -121,7 +121,7 @@ export async function ProjectDetailPage({slug}: {slug: string}) {
               </div>
               <div
                 className="relative"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={120}
                 style={getRevealStyle({delay: 120})}
               >
@@ -143,7 +143,7 @@ export async function ProjectDetailPage({slug}: {slug: string}) {
 
           <section
             className="space-y-6"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-delay={180}
             style={getRevealStyle({delay: 180})}
           >

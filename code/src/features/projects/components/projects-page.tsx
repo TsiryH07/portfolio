@@ -6,7 +6,6 @@ import {Card, CardDescription, CardTitle} from "@/components/ui/card";
 import {getRevealStyle} from "@/components/utils";
 import {Link} from "@/lib/i18n/navigation";
 
-import {ProjectsJournal} from "./projects-journal";
 import {getProjects} from "../server/get-projects";
 import {getProjectsPageContent} from "../server/get-projects-page-content";
 
@@ -39,7 +38,7 @@ export async function ProjectsPage() {
             <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div
                 className="space-y-6"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-offset={18}
                 style={getRevealStyle({offset: 18})}
               >
@@ -60,7 +59,7 @@ export async function ProjectsPage() {
               </div>
               <div
                 className="grid gap-4 sm:grid-cols-2"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={120}
                 style={getRevealStyle({delay: 120})}
               >
@@ -97,7 +96,7 @@ export async function ProjectsPage() {
 
           <section
             className="space-y-6"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-delay={180}
             style={getRevealStyle({delay: 180})}
           >
@@ -207,7 +206,6 @@ export async function ProjectsPage() {
               </div>
             )}
           </section>
-          <ProjectsJournal />
         </div>
       </div>
     </section>

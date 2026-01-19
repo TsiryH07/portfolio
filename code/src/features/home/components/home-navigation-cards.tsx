@@ -26,7 +26,7 @@ export function HomeNavigationCards({
   return (
     <section className="w-full pb-16 pt-8">
       <div className="space-y-8">
-        <div className="space-y-3" data-reveal data-reveal-visible="false">
+        <div className="space-y-3" data-reveal>
           <p className="inline-flex w-fit items-center rounded-full border border-border/70 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-primary">
             {title}
           </p>
@@ -36,25 +36,25 @@ export function HomeNavigationCards({
         </div>
         <div className="rounded-[32px] p-4 sm:p-6">
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div data-reveal data-reveal-visible="false">
+            <div data-reveal>
               <HomeNavAboutCard card={cards.about} />
             </div>
             <div
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={120}
               style={getRevealStyle({delay: 120})}
             >
               <HomeNavConnectionsCard card={cards.projects} />
             </div>
             <div
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={200}
               style={getRevealStyle({delay: 200})}
             >
               <HomeNavSkillsCard card={cards.skills} />
             </div>
             <div
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={280}
               style={getRevealStyle({delay: 280})}
             >

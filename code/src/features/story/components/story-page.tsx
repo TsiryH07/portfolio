@@ -4,8 +4,6 @@ import {Badge} from "@/components/ui/badge";
 import {Card, CardDescription, CardTitle} from "@/components/ui/card";
 import {getRevealStyle} from "@/components/utils";
 
-import {ProjectsJournal} from "@/features/projects/components/projects-journal";
-
 import {getStoryPageViewModel} from "../server/get-story-page-view-model";
 
 export async function StoryPage() {
@@ -34,7 +32,7 @@ export async function StoryPage() {
             <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div
                 className="space-y-6"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-offset={18}
                 style={getRevealStyle({offset: 18})}
               >
@@ -55,7 +53,7 @@ export async function StoryPage() {
               </div>
               <div
                 className="grid gap-4 sm:grid-cols-2"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={120}
                 style={getRevealStyle({delay: 120})}
               >
@@ -94,7 +92,7 @@ export async function StoryPage() {
           <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <div
               className="space-y-6"
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-offset={16}
               style={getRevealStyle({offset: 16})}
             >
@@ -121,7 +119,7 @@ export async function StoryPage() {
             </div>
             <div
               className="glass-section relative overflow-hidden p-8 sm:p-10"
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={140}
               style={getRevealStyle({delay: 140})}
             >
@@ -144,7 +142,6 @@ export async function StoryPage() {
                       key={`${moment.year ?? "moment"}-${moment.title ?? "story"}-${index}`}
                       className="relative"
                       data-reveal
-                      data-reveal-visible="false"
                       data-reveal-delay={revealDelay}
                       style={getRevealStyle({delay: revealDelay})}
                     >
@@ -184,7 +181,6 @@ export async function StoryPage() {
               </div>
             </div>
           </section>
-          <ProjectsJournal />
         </div>
       </div>
     </section>

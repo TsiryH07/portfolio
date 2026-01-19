@@ -1,5 +1,6 @@
 import type {
   AboutPageData,
+  CvPageData,
   HomePageData,
   ProjectsPageData,
   SiteSettingsData,
@@ -10,6 +11,7 @@ import type {
 import {sanityClient} from "./client";
 import {
   aboutPageQuery,
+  cvPageQuery,
   homePageQuery,
   projectsPageQuery,
   siteSettingsQuery,
@@ -37,6 +39,10 @@ export async function getSkillsPage(): Promise<SkillsPageData> {
 
 export async function getProjectsPage(): Promise<ProjectsPageData> {
   return sanityClient.fetch(projectsPageQuery, {}, revalidate);
+}
+
+export async function getCvPage(): Promise<CvPageData> {
+  return sanityClient.fetch(cvPageQuery, {}, revalidate);
 }
 
 export async function getStoryPage(): Promise<StoryPageData> {

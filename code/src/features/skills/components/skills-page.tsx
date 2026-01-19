@@ -48,7 +48,7 @@ export async function SkillsPage() {
             <div className="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div
                 className="space-y-6"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-offset={18}
                 style={getRevealStyle({offset: 18})}
               >
@@ -93,7 +93,7 @@ export async function SkillsPage() {
               </div>
               <div
                 className="space-y-4"
-                data-reveal data-reveal-visible="false"
+                data-reveal
                 data-reveal-delay={120}
                 style={getRevealStyle({delay: 120})}
               >
@@ -163,7 +163,7 @@ export async function SkillsPage() {
                 <Card
                   key={`${metric.label ?? metric.value ?? index}`}
                   className="relative overflow-hidden border-border/70 bg-surface/80"
-                  data-reveal data-reveal-visible="false"
+                  data-reveal
                   data-reveal-delay={revealDelay}
                   style={getRevealStyle({delay: revealDelay})}
                 >
@@ -184,7 +184,7 @@ export async function SkillsPage() {
 
           <section
             className="space-y-6"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-offset={16}
             style={getRevealStyle({offset: 16})}
           >
@@ -230,7 +230,7 @@ export async function SkillsPage() {
             <div className="absolute -right-8 -top-16 h-28 w-28 rounded-full bg-sky-400/20 blur-[90px]" />
             <div
               className="space-y-6"
-              data-reveal data-reveal-visible="false"
+              data-reveal
               data-reveal-delay={140}
               style={getRevealStyle({delay: 140})}
             >
@@ -288,7 +288,7 @@ export async function SkillsPage() {
 
           <section
             className="space-y-6"
-            data-reveal data-reveal-visible="false"
+            data-reveal
             data-reveal-delay={180}
             style={getRevealStyle({delay: 180})}
           >

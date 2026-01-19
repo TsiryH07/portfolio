@@ -24,7 +24,7 @@ export async function LocaleLayout({children, locale}: LocaleLayoutProps) {
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${fontSans.variable} ${fontMono.variable} min-h-dvh`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
+            <ThemeProvider>
             <IntroOverlay />
             <ScrollRevealProvider />
             <ScrollBlurOverlay />
@@ -37,7 +37,7 @@ export async function LocaleLayout({children, locale}: LocaleLayoutProps) {
               {children}
             </main>
             <Footer />
-          </ThemeProvider>
+            </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
