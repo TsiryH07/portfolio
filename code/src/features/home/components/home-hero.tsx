@@ -30,8 +30,8 @@ export function HomeHero({
 
   return (
     <section className="relative">
-      <div className="py-16 lg:py-24">
-        <div className="glass-section relative grid gap-12 border border-border/60 bg-background/40 p-8 sm:p-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+      <div className="py-12 sm:py-16 lg:py-24">
+        <div className="glass-section relative grid gap-10 border border-border/60 bg-background/40 p-6 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div
             className="relative flex items-center justify-center"
             data-reveal
@@ -42,7 +42,7 @@ export function HomeHero({
               className="absolute -inset-10 rounded-full bg-primary/15 blur-3xl"
               aria-hidden="true"
             />
-            <Avatar className="h-56 w-56 border-4 border-background shadow-ring sm:h-64 sm:w-64 lg:h-80 lg:w-80">
+            <Avatar className="h-40 w-40 border-4 border-background shadow-ring sm:h-56 sm:w-56 lg:h-80 lg:w-80">
               <AvatarImage src={imageSrc} alt={name} />
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
@@ -62,7 +62,7 @@ export function HomeHero({
               </Badge>
             ) : null}
             <div className="space-y-3">
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-6xl">
                 <span className="block text-foreground">{name}</span>
                 <span className="block bg-gradient-to-r from-primary via-sky-500 to-emerald-400 bg-clip-text text-transparent">
                   {role}
