@@ -4,7 +4,7 @@ node_modules/
 # next.js build output / cache
 .next/
 out/
-test/
+/test/
 
 # logs
 npm-debug.log*
